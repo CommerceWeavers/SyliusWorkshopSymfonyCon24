@@ -3,3 +3,7 @@ sylius_twig_hooks:
         'sylius_admin.packing.show': 
             show:
                 template: 'admin/packing/show.html.twig'
+                
+        'sylius_admin.common.update.content.header.title_block.actions':
+            show:
+                template: 'admin/shared/crud/update/title_block/actions/show.html.twig'

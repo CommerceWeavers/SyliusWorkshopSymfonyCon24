@@ -6,7 +6,7 @@ setup:
 
 docker.up:
 	@echo "Starting docker..."
-	@docker compose up -d
+	@docker compose up -d --build
 
 docker.stop:
 	@echo "Stopping docker..."

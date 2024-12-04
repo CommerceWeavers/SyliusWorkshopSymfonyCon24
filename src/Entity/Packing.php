@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Grid\PackingGrid;
 use App\Repository\PackingRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
@@ -17,7 +18,7 @@ use Symfony\Component\Validator\Constraints\Unique;
     routePrefix: 'admin',
     templatesDir: '@SyliusAdmin/shared/crud',
     operations: [
-        new Metadata\Index(),
+        new Metadata\Index(grid: PackingGrid::class),
         new Metadata\Create(),
         new Metadata\Show(),
         new Metadata\Update(),
