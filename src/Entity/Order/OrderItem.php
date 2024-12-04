@@ -11,4 +11,16 @@ use Sylius\Component\Core\Model\OrderItem as BaseOrderItem;
 #[ORM\Table(name: 'sylius_order_item')]
 class OrderItem extends BaseOrderItem
 {
+    #[ORM\Column(type: 'float')]
+    private float $amount;
+
+    public function getAmount(): float
+    {
+        return $this->amount;
+    }
+
+    public function setAmount(float $amount): void
+    {
+        $this->amount = $amount;
+    }
 }

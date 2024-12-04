@@ -11,6 +11,8 @@ use Sylius\Bundle\GridBundle\Builder\ActionGroup\BulkActionGroup;
 use Sylius\Bundle\GridBundle\Builder\ActionGroup\ItemActionGroup;
 use Sylius\Bundle\GridBundle\Builder\ActionGroup\MainActionGroup;
 use Sylius\Bundle\GridBundle\Builder\Field\StringField;
+use Sylius\Bundle\GridBundle\Builder\Field\TwigField;
+use Sylius\Bundle\GridBundle\Builder\Filter\StringFilter;
 use Sylius\Bundle\GridBundle\Builder\GridBuilderInterface;
 use Sylius\Bundle\GridBundle\Grid\AbstractGrid;
 use Sylius\Bundle\GridBundle\Grid\ResourceAwareGridInterface;
@@ -36,6 +38,13 @@ final class PackingGrid extends AbstractGrid implements ResourceAwareGridInterfa
                     ->setLabel('Code')
                     ->setSortable(true)
             )
+            ->addField(
+                TwigField::create('price', 'admin/packing/_price.html.twig')
+                    ->setLabel('Price')
+                    ->setSortable(true)
+                    ->setPath('.')
+            )
+            ->addFilter(StringFilter::create('search', ['name', 'code']))
             ->addActionGroup(
                 MainActionGroup::create(
                     CreateAction::create(),
