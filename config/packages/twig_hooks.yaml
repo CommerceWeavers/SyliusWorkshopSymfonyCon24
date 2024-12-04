@@ -1,0 +1,5 @@
+sylius_twig_hooks:
+    hooks:
+        'sylius_admin.packing.show': 
+            show:
+                template: 'admin/packing/show.html.twig'

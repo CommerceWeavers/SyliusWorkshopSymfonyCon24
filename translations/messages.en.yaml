@@ -1,0 +1,4 @@
+app:
+    ui:
+        packing: Packing
+        packings: Packings

@@ -5,12 +5,26 @@ namespace App\Entity;
 use App\Repository\PackingRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
-use Sylius\Resource\Metadata\AsResource;
+use Sylius\Resource\Metadata as Metadata;
 use Sylius\Resource\Model\ResourceInterface;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\Unique;
 
 #[ORM\Entity(repositoryClass: PackingRepository::class)]
 #[Table(name: 'app_packing')]
-#[AsResource()]
+#[Metadata\AsResource(
+    section: 'admin',
+    routePrefix: 'admin',
+    templatesDir: '@SyliusAdmin/shared/crud',
+    operations: [
+        new Metadata\Index(),
+        new Metadata\Create(),
+        new Metadata\Show(),
+        new Metadata\Update(),
+        new Metadata\Delete(),
+        new Metadata\BulkDelete(),
+    ]
+)]
 class Packing implements ResourceInterface
 {
     #[ORM\Id]
@@ -19,6 +33,7 @@ class Packing implements ResourceInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Length(min: 5)]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]

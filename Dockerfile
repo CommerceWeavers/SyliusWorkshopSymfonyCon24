@@ -2,9 +2,8 @@ FROM dunglas/frankenphp:alpine AS frankenphp
 
 ADD .docker/frankenphp/Caddyfile /etc/caddy/
 ADD .docker/frankenphp/php.ini "$PHP_INI_DIR/"
-ADD .docker/frankenphp/xdebug.ini "$PHP_INI_DIR/conf.d/"
 
-RUN install-php-extensions ast exif gd intl pdo pdo_mysql pdo_pgsql soap zip xdebug xsl ftp redis
+RUN install-php-extensions ast exif gd intl pdo pdo_mysql pdo_pgsql soap zip xsl ftp redis
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 ENV COMPOSER_MEMORY_LIMIT=-1
