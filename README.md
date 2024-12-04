@@ -18,10 +18,10 @@
 ## Installation
 
 ### Traditional
+Clone this project and execute following instruction
 ```bash
-$ wget http://getcomposer.org/composer.phar
-$ php composer.phar create-project sylius/sylius-standard project
-$ cd project
+$ cd SyliusWorkshopSymfonyCon24
+$ composer install 
 $ yarn install
 $ yarn build
 $ php bin/console sylius:install
